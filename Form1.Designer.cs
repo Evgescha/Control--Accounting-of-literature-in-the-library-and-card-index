@@ -30,9 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -43,21 +47,20 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.ordersTableAdapter();
+            this.usersTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.usersTableAdapter();
+            this.bookTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.bookTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isBackDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.usersTableAdapter();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bookTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.bookTableAdapter();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +78,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.usersDataGridViewTextBoxColumn,
+            this.Column1,
             this.bookDataGridViewTextBoxColumn,
+            this.Column2,
             this.datesDataGridViewTextBoxColumn,
             this.isBackDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.ordersBindingSource;
@@ -84,6 +89,16 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(643, 296);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.DataMember = "orders";
+            this.ordersBindingSource.DataSource = this.libraryMyDataSet;
+            // 
+            // libraryMyDataSet
+            // 
+            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
+            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -106,6 +121,11 @@
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "id";
             // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "users";
+            this.usersBindingSource.DataSource = this.libraryMyDataSet;
+            // 
             // comboBox2
             // 
             this.comboBox2.DataSource = this.bookBindingSource;
@@ -117,6 +137,11 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 4;
             this.comboBox2.ValueMember = "id";
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataMember = "book";
+            this.bookBindingSource.DataSource = this.libraryMyDataSet;
             // 
             // label2
             // 
@@ -214,83 +239,90 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // libraryMyDataSet
-            // 
-            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
-            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ordersBindingSource
-            // 
-            this.ordersBindingSource.DataMember = "orders";
-            this.ordersBindingSource.DataSource = this.libraryMyDataSet;
-            // 
             // ordersTableAdapter
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // usersDataGridViewTextBoxColumn
-            // 
-            this.usersDataGridViewTextBoxColumn.DataPropertyName = "users";
-            this.usersDataGridViewTextBoxColumn.HeaderText = "users";
-            this.usersDataGridViewTextBoxColumn.Name = "usersDataGridViewTextBoxColumn";
-            this.usersDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usersDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // bookDataGridViewTextBoxColumn
-            // 
-            this.bookDataGridViewTextBoxColumn.DataPropertyName = "book";
-            this.bookDataGridViewTextBoxColumn.HeaderText = "book";
-            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
-            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bookDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // datesDataGridViewTextBoxColumn
-            // 
-            this.datesDataGridViewTextBoxColumn.DataPropertyName = "dates";
-            this.datesDataGridViewTextBoxColumn.HeaderText = "dates";
-            this.datesDataGridViewTextBoxColumn.Name = "datesDataGridViewTextBoxColumn";
-            this.datesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datesDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // isBackDataGridViewCheckBoxColumn
-            // 
-            this.isBackDataGridViewCheckBoxColumn.DataPropertyName = "isBack";
-            this.isBackDataGridViewCheckBoxColumn.HeaderText = "isBack";
-            this.isBackDataGridViewCheckBoxColumn.Name = "isBackDataGridViewCheckBoxColumn";
-            this.isBackDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.isBackDataGridViewCheckBoxColumn.Width = 45;
-            // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "users";
-            this.usersBindingSource.DataSource = this.libraryMyDataSet;
             // 
             // usersTableAdapter
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
             // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataMember = "book";
-            this.bookBindingSource.DataSource = this.libraryMyDataSet;
-            // 
             // bookTableAdapter
             // 
             this.bookTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ИД";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 49;
+            // 
+            // usersDataGridViewTextBoxColumn
+            // 
+            this.usersDataGridViewTextBoxColumn.DataPropertyName = "users";
+            this.usersDataGridViewTextBoxColumn.HeaderText = "Пользователь";
+            this.usersDataGridViewTextBoxColumn.Name = "usersDataGridViewTextBoxColumn";
+            this.usersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usersDataGridViewTextBoxColumn.Visible = false;
+            this.usersDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Пользователь";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 105;
+            // 
+            // bookDataGridViewTextBoxColumn
+            // 
+            this.bookDataGridViewTextBoxColumn.DataPropertyName = "book";
+            this.bookDataGridViewTextBoxColumn.HeaderText = "Книга";
+            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
+            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookDataGridViewTextBoxColumn.Visible = false;
+            this.bookDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Книга";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 62;
+            // 
+            // datesDataGridViewTextBoxColumn
+            // 
+            this.datesDataGridViewTextBoxColumn.DataPropertyName = "dates";
+            this.datesDataGridViewTextBoxColumn.HeaderText = "Дата взятия";
+            this.datesDataGridViewTextBoxColumn.Name = "datesDataGridViewTextBoxColumn";
+            this.datesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datesDataGridViewTextBoxColumn.Width = 96;
+            // 
+            // isBackDataGridViewCheckBoxColumn
+            // 
+            this.isBackDataGridViewCheckBoxColumn.DataPropertyName = "isBack";
+            this.isBackDataGridViewCheckBoxColumn.HeaderText = "Вернул?";
+            this.isBackDataGridViewCheckBoxColumn.Name = "isBackDataGridViewCheckBoxColumn";
+            this.isBackDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isBackDataGridViewCheckBoxColumn.Width = 55;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(153, 1);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 23);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "Обновить";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 338);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -309,8 +341,8 @@
             this.Text = "Картотека";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -337,15 +369,18 @@
         private libraryMyDataSet libraryMyDataSet;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private libraryMyDataSetTableAdapters.ordersTableAdapter ordersTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isBackDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private libraryMyDataSetTableAdapters.usersTableAdapter usersTableAdapter;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private libraryMyDataSetTableAdapters.bookTableAdapter bookTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usersDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isBackDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Button button7;
     }
 }
 

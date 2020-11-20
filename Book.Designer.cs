@@ -39,24 +39,24 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
             this.bookTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.bookTableAdapter();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.autorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryMyDataSet1 = new LibraryAndUserCards.libraryMyDataSet();
+            this.autorTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.autorTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.libraryMyDataSet1 = new LibraryAndUserCards.libraryMyDataSet();
-            this.autorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.autorTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.autorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox3
@@ -161,54 +161,19 @@
             this.dataGridView1.Size = new System.Drawing.Size(618, 236);
             this.dataGridView1.TabIndex = 10;
             // 
-            // libraryMyDataSet
-            // 
-            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
-            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bookBindingSource
             // 
             this.bookBindingSource.DataMember = "book";
             this.bookBindingSource.DataSource = this.libraryMyDataSet;
             // 
+            // libraryMyDataSet
+            // 
+            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
+            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bookTableAdapter
             // 
             this.bookTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // autorDataGridViewTextBoxColumn
-            // 
-            this.autorDataGridViewTextBoxColumn.DataPropertyName = "autor";
-            this.autorDataGridViewTextBoxColumn.HeaderText = "autor";
-            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
-            this.autorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "count";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // label4
             // 
@@ -231,19 +196,55 @@
             this.comboBox1.TabIndex = 21;
             this.comboBox1.ValueMember = "fio";
             // 
-            // libraryMyDataSet1
-            // 
-            this.libraryMyDataSet1.DataSetName = "libraryMyDataSet";
-            this.libraryMyDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // autorBindingSource
             // 
             this.autorBindingSource.DataMember = "autor";
             this.autorBindingSource.DataSource = this.libraryMyDataSet1;
             // 
+            // libraryMyDataSet1
+            // 
+            this.libraryMyDataSet1.DataSetName = "libraryMyDataSet";
+            this.libraryMyDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // autorTableAdapter
             // 
             this.autorTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // autorDataGridViewTextBoxColumn
+            // 
+            this.autorDataGridViewTextBoxColumn.DataPropertyName = "autor";
+            this.autorDataGridViewTextBoxColumn.HeaderText = "Автор";
+            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
+            this.autorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название книги";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Год издания";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество книг";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Book
             // 
@@ -266,10 +267,10 @@
             this.Text = "Book";
             this.Load += new System.EventHandler(this.Book_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,15 +290,15 @@
         private libraryMyDataSet libraryMyDataSet;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private libraryMyDataSetTableAdapters.bookTableAdapter bookTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private libraryMyDataSet libraryMyDataSet1;
         private System.Windows.Forms.BindingSource autorBindingSource;
         private libraryMyDataSetTableAdapters.autorTableAdapter autorTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
     }
 }

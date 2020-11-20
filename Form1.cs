@@ -20,11 +20,16 @@ namespace LibraryAndUserCards
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.book". При необходимости она может быть перемещена или удалена.
+            updateAll();   
+        }
+        private void updateAll()
+        {
             this.bookTableAdapter.Fill(this.libraryMyDataSet.book);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.users". При необходимости она может быть перемещена или удалена.
             this.usersTableAdapter.Fill(this.libraryMyDataSet.users);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.orders". При необходимости она может быть перемещена или удалена.
             this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
+            fixName();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -63,7 +68,7 @@ namespace LibraryAndUserCards
                     MessageBox.Show(ex.Message);
                 }
             this.ordersTableAdapter.Fill(libraryMyDataSet.orders);
-
+            fixName();
         }
         private bool isFill()
         {
@@ -82,9 +87,9 @@ namespace LibraryAndUserCards
                 {
                     
                     dataGridView1.CurrentRow.Cells[1].Value = comboBox1.SelectedValue;
-                    dataGridView1.CurrentRow.Cells[2].Value = comboBox1.SelectedValue;
-                    dataGridView1.CurrentRow.Cells[3].Value = dateTimePicker1.Value;
-                    dataGridView1.CurrentRow.Cells[4].Value = checkBox1.Checked;
+                    dataGridView1.CurrentRow.Cells[3].Value = comboBox1.SelectedValue;
+                    dataGridView1.CurrentRow.Cells[5].Value = dateTimePicker1.Value;
+                    dataGridView1.CurrentRow.Cells[6].Value = checkBox1.Checked;
 
                     ordersBindingSource.EndEdit();
                     this.ordersTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
@@ -97,7 +102,7 @@ namespace LibraryAndUserCards
                     MessageBox.Show(ex.Message);
                 }
             this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
-
+            fixName();
         }
         //delete
         private void button3_Click(object sender, EventArgs e)
@@ -117,6 +122,31 @@ namespace LibraryAndUserCards
                 }
                 this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
             }
+            fixName();
+        }
+        private void fixName() {
+            for (int i = 0; i < dataGridView1.RowCount; i++) {
+                comboBox1.SelectedItem = comboBox1.Items[
+                                                           usersBindingSource.Find(
+                                                                       "id",
+                                                                       int.Parse(dataGridView1[1, i].Value.ToString())
+                                                                       )
+                                                           ];
+                dataGridView1[2, i].Value = comboBox1.Text;
+
+                comboBox2.SelectedItem = comboBox2.Items[
+                                            bookBindingSource.Find(
+                                                        "id",
+                                                        int.Parse(dataGridView1[3, i].Value.ToString())
+                                                        )
+                                            ];
+                dataGridView1[4, i].Value = comboBox2.Text;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            updateAll();
         }
     }
 }

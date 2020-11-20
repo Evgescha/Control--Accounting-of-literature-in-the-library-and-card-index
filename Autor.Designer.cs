@@ -34,14 +34,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
             this.autorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
+            this.button1 = new System.Windows.Forms.Button();
             this.autorTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.autorTableAdapter();
             this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -98,6 +98,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(378, 116);
             this.dataGridView1.TabIndex = 10;
             // 
+            // autorBindingSource
+            // 
+            this.autorBindingSource.DataMember = "autor";
+            this.autorBindingSource.DataSource = this.libraryMyDataSet;
+            // 
+            // libraryMyDataSet
+            // 
+            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
+            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(8, 59);
@@ -108,16 +118,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // libraryMyDataSet
-            // 
-            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
-            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // autorBindingSource
-            // 
-            this.autorBindingSource.DataMember = "autor";
-            this.autorBindingSource.DataSource = this.libraryMyDataSet;
-            // 
             // autorTableAdapter
             // 
             this.autorTableAdapter.ClearBeforeFill = true;
@@ -125,7 +125,7 @@
             // fioDataGridViewTextBoxColumn
             // 
             this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
-            this.fioDataGridViewTextBoxColumn.HeaderText = "fio";
+            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО автора";
             this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
             this.fioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -144,8 +144,8 @@
             this.Text = "Autor";
             this.Load += new System.EventHandler(this.Autor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
