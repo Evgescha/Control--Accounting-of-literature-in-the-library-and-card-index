@@ -10,42 +10,27 @@ using System.Windows.Forms;
 
 namespace LibraryAndUserCards
 {
-    public partial class Form1 : Form
+    public partial class History : Form
     {
-        public Form1()
+        public History()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.book". При необходимости она может быть перемещена или удалена.
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "mydbDataSet.books". При необходимости она может быть перемещена или удалена.
+            this.booksTableAdapter.Fill(this.mydbDataSet.books);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "mydbDataSet.users". При необходимости она может быть перемещена или удалена.
+            this.usersTableAdapter.Fill(this.mydbDataSet.users);
             updateAll();   
         }
         private void updateAll()
         {
-            this.bookTableAdapter.Fill(this.libraryMyDataSet.book);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.users". При необходимости она может быть перемещена или удалена.
-            this.usersTableAdapter.Fill(this.libraryMyDataSet.users);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.orders". При необходимости она может быть перемещена или удалена.
-            this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
+            this.historyTableAdapter.Fill(this.mydbDataSet.history);
             fixName();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            new Users().Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            new Autor().Show();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            new Book().Show();
-        }
 
         //add
         private void button1_Click(object sender, EventArgs e)
@@ -53,21 +38,24 @@ namespace LibraryAndUserCards
             if (isFill())
                 try
                 {
-                    DataRowView row = (DataRowView)ordersBindingSource.AddNew();
+                    DataRowView row = (DataRowView)historyBindingSource.AddNew();
 
                     row[1] = comboBox1.SelectedValue;
                     row[2] = comboBox1.SelectedValue;
                     row[3] = dateTimePicker1.Value;
                     row[4] = checkBox1.Checked;
-                    ordersBindingSource.EndEdit();
-                    this.ordersTableAdapter.Update(libraryMyDataSet);
+                    row[5] = dateTimePicker2.Value;
+                    historyBindingSource.EndEdit();
+                    this.historyTableAdapter.Update(mydbDataSet);
                     clearFields();
+
+                    booksTableAdapter.UpdateCountById(-1, int.Parse(comboBox2.SelectedValue.ToString()));
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            this.ordersTableAdapter.Fill(libraryMyDataSet.orders);
+            this.historyTableAdapter.Fill(mydbDataSet.history);
             fixName();
         }
         private bool isFill()
@@ -85,23 +73,25 @@ namespace LibraryAndUserCards
             if (isFill())
                 try
                 {
-                    
+                    int were = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
                     dataGridView1.CurrentRow.Cells[1].Value = comboBox1.SelectedValue;
-                    dataGridView1.CurrentRow.Cells[3].Value = comboBox1.SelectedValue;
+                    dataGridView1.CurrentRow.Cells[3].Value = comboBox2.SelectedValue;
                     dataGridView1.CurrentRow.Cells[5].Value = dateTimePicker1.Value;
                     dataGridView1.CurrentRow.Cells[6].Value = checkBox1.Checked;
-
-                    ordersBindingSource.EndEdit();
-                    this.ordersTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
-                    this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
+                    dataGridView1.CurrentRow.Cells[7].Value = dateTimePicker2.Value;
+                    historyBindingSource.EndEdit();
+                    this.historyTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
+                    this.historyTableAdapter.Fill(this.mydbDataSet.history);
 
                     clearFields();
+                    booksTableAdapter.UpdateCountById(1, were);
+                    booksTableAdapter.UpdateCountById(-1, int.Parse(comboBox2.SelectedValue.ToString()));
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
+            this.historyTableAdapter.Fill(this.mydbDataSet.history);
             fixName();
         }
         //delete
@@ -111,16 +101,18 @@ namespace LibraryAndUserCards
             {
                 try
                 {
-                    libraryMyDataSet.AcceptChanges();
-                    ordersBindingSource.RemoveAt(dataGridView1.CurrentRow.Index);
-                    ordersBindingSource.EndEdit();
-                    ordersTableAdapter.Update(libraryMyDataSet.orders);
+                    int were = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                    mydbDataSet.AcceptChanges();
+                    historyBindingSource.RemoveAt(dataGridView1.CurrentRow.Index);
+                    historyBindingSource.EndEdit();
+                    historyTableAdapter.Update(mydbDataSet.history);
+                    booksTableAdapter.UpdateCountById(1, were);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                this.ordersTableAdapter.Fill(this.libraryMyDataSet.orders);
+                this.historyTableAdapter.Fill(this.mydbDataSet.history);
             }
             fixName();
         }
@@ -135,7 +127,7 @@ namespace LibraryAndUserCards
                 dataGridView1[2, i].Value = comboBox1.Text;
 
                 comboBox2.SelectedItem = comboBox2.Items[
-                                            bookBindingSource.Find(
+                                            booksBindingSource.Find(
                                                         "id",
                                                         int.Parse(dataGridView1[3, i].Value.ToString())
                                                         )
@@ -147,6 +139,11 @@ namespace LibraryAndUserCards
         private void button7_Click(object sender, EventArgs e)
         {
             updateAll();
+        }
+
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+            fixName();
         }
     }
 }

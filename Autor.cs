@@ -19,8 +19,8 @@ namespace LibraryAndUserCards
 
         private void Autor_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "libraryMyDataSet.autor". При необходимости она может быть перемещена или удалена.
-            this.autorTableAdapter.Fill(this.libraryMyDataSet.autor);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "mydbDataSet.autor". При необходимости она может быть перемещена или удалена.
+            this.autorTableAdapter.Fill(this.mydbDataSet.autor);
 
         }
 
@@ -30,19 +30,21 @@ namespace LibraryAndUserCards
             if (isFill())
                 try
                 {
-                    DataRowView row = (DataRowView)autorBindingSource.AddNew();
+                    //DataRowView r = autorBindingSource1.add
+                    DataRowView row = (DataRowView)autorBindingSource1.AddNew();
 
-                    row[0] = textBox1.Text;
+                    row[1] = textBox1.Text;
+                    row[2] = dateTimePicker1.Value;
 
-                    autorBindingSource.EndEdit();
-                    this.autorTableAdapter.Update(libraryMyDataSet);
+                    autorBindingSource1.EndEdit();
+                    this.autorTableAdapter.Update(mydbDataSet);
                     clearFields();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            this.autorTableAdapter.Fill(libraryMyDataSet.autor);
+            this.autorTableAdapter.Fill(mydbDataSet.autor);
 
         }
         private bool isFill()
@@ -61,11 +63,11 @@ namespace LibraryAndUserCards
             if (isFill())
                 try
                 {
-                    dataGridView1.CurrentRow.Cells[0].Value = textBox1.Text;
-
-                    autorBindingSource.EndEdit();
+                    dataGridView1.CurrentRow.Cells[1].Value = textBox1.Text;
+                    dataGridView1.CurrentRow.Cells[2].Value = dateTimePicker1.Text;
+                    autorBindingSource1.EndEdit();
                     this.autorTableAdapter.Update(((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row);
-                    this.autorTableAdapter.Fill(this.libraryMyDataSet.autor);
+                    this.autorTableAdapter.Fill(this.mydbDataSet.autor);
 
                     clearFields();
                 }
@@ -73,7 +75,7 @@ namespace LibraryAndUserCards
                 {
                     MessageBox.Show(ex.Message);
                 }
-            this.autorTableAdapter.Fill(this.libraryMyDataSet.autor);
+            this.autorTableAdapter.Fill(this.mydbDataSet.autor);
 
         }
         //delete
@@ -83,16 +85,16 @@ namespace LibraryAndUserCards
             {
                 try
                 {
-                    libraryMyDataSet.AcceptChanges();
-                    autorBindingSource.RemoveAt(dataGridView1.CurrentRow.Index);
-                    autorBindingSource.EndEdit();
-                    autorTableAdapter.Update(libraryMyDataSet.autor);
+                    mydbDataSet.AcceptChanges();
+                    autorBindingSource1.RemoveAt(dataGridView1.CurrentRow.Index);
+                    autorBindingSource1.EndEdit();
+                    autorTableAdapter.Update(mydbDataSet.autor);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                this.autorTableAdapter.Fill(this.libraryMyDataSet.autor);
+                this.autorTableAdapter.Fill(this.mydbDataSet.autor);
             }
         }
     }

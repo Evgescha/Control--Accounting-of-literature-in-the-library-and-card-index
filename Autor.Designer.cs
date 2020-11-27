@@ -35,18 +35,24 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.autorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryMyDataSet = new LibraryAndUserCards.libraryMyDataSet();
             this.button1 = new System.Windows.Forms.Button();
-            this.autorTableAdapter = new LibraryAndUserCards.libraryMyDataSetTableAdapters.autorTableAdapter();
-            this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.mydbDataSet = new LibraryAndUserCards.mydbDataSet();
+            this.autorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.autorTableAdapter = new LibraryAndUserCards.mydbDataSetTableAdapters.autorTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datebornDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 24);
+            this.textBox1.Location = new System.Drawing.Point(12, 30);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 20);
             this.textBox1.TabIndex = 15;
@@ -54,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 7);
+            this.label1.Location = new System.Drawing.Point(8, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 14;
@@ -62,7 +68,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(8, 117);
+            this.button3.Location = new System.Drawing.Point(12, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 23);
             this.button3.TabIndex = 13;
@@ -72,7 +78,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(7, 88);
+            this.button2.Location = new System.Drawing.Point(11, 127);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 23);
             this.button2.TabIndex = 12;
@@ -90,27 +96,23 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fioDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.autorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(157, 24);
+            this.idDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.datebornDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.autorBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(163, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(378, 116);
+            this.dataGridView1.Size = new System.Drawing.Size(399, 170);
             this.dataGridView1.TabIndex = 10;
             // 
             // autorBindingSource
             // 
             this.autorBindingSource.DataMember = "autor";
-            this.autorBindingSource.DataSource = this.libraryMyDataSet;
-            // 
-            // libraryMyDataSet
-            // 
-            this.libraryMyDataSet.DataSetName = "libraryMyDataSet";
-            this.libraryMyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(8, 59);
+            this.button1.Location = new System.Drawing.Point(12, 98);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 23);
             this.button1.TabIndex = 11;
@@ -118,22 +120,66 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Дата рождения";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(13, 72);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(144, 20);
+            this.dateTimePicker1.TabIndex = 31;
+            // 
+            // mydbDataSet
+            // 
+            this.mydbDataSet.DataSetName = "mydbDataSet";
+            this.mydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // autorBindingSource1
+            // 
+            this.autorBindingSource1.DataMember = "autor";
+            this.autorBindingSource1.DataSource = this.mydbDataSet;
+            // 
             // autorTableAdapter
             // 
             this.autorTableAdapter.ClearBeforeFill = true;
             // 
-            // fioDataGridViewTextBoxColumn
+            // idDataGridViewTextBoxColumn
             // 
-            this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
-            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО автора";
-            this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
-            this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "FIO";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ФИО";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // datebornDataGridViewTextBoxColumn
+            // 
+            this.datebornDataGridViewTextBoxColumn.DataPropertyName = "dateborn";
+            this.datebornDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.datebornDataGridViewTextBoxColumn.Name = "datebornDataGridViewTextBoxColumn";
+            this.datebornDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Autor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 155);
+            this.ClientSize = new System.Drawing.Size(574, 197);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
@@ -141,11 +187,12 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Autor";
-            this.Text = "Autor";
+            this.Text = "Авторы";
             this.Load += new System.EventHandler(this.Autor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryMyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,9 +205,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private libraryMyDataSet libraryMyDataSet;
         private System.Windows.Forms.BindingSource autorBindingSource;
-        private libraryMyDataSetTableAdapters.autorTableAdapter autorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private mydbDataSet mydbDataSet;
+        private System.Windows.Forms.BindingSource autorBindingSource1;
+        private mydbDataSetTableAdapters.autorTableAdapter autorTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datebornDataGridViewTextBoxColumn;
     }
 }
